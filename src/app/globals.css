@@ -1,5 +1,20 @@
 body {
-  background-color: #000;
+  background-color: #000 !important;
+  color: #fff !important;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+}
+
+.light-border-bottom {
+  border-bottom: 2px solid #ffffff20;
+}
+
+.default-input {
+  border: 0;
+  background-color: inherit;
+}
+
+.default-input:focus {
+  outline: none;
 }
