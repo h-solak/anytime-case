@@ -2,13 +2,8 @@
 
 import ColContainer from "@/components/base/ColContainer";
 import RowContainer from "@/components/base/RowContainer";
-import {
-  handleCheckTask,
-  handleDeleteTask,
-  handleUpdateTaskDetails,
-} from "../../actions/actions";
+import { handleCheckTask, handleDeleteTask } from "../../actions/actions";
 import { useState } from "react";
-import Input from "@/components/base/Input";
 import { MdDelete, MdEdit } from "react-icons/md";
 import EditTaskForm from "./EditTaskForm";
 
@@ -97,8 +92,6 @@ export default function Task({
         //Show edit mode if editing mode state has an id (that means user has clicked on edit button)
         <EditTaskForm
           id={id}
-          title={title}
-          description={description || ""}
           completed={completed}
           editingMode={editingMode}
           setEditingMode={setEditingMode}

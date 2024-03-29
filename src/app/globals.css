@@ -28,6 +28,8 @@ body {
     #a0153e90 -6px 4px 10px -1px, #a0153e90 6px -4px 10px -1px; */
 }
 
+/* Animations */
+
 .intro-animation {
   animation: openingAnimation 0.5s ease-in-out;
   transform-origin: top center;

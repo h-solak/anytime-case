@@ -33,7 +33,6 @@ export const handleUpdateTaskDetails = async (
 ) => {
   const title = formData.get("title") as string;
   const description = formData.get("description") as string;
-  console.log(id, title, description, completed);
   await updateTask(id, title, description, completed);
   revalidatePath(`/todo${completed ? "/completed" : "/uncompleted"}`);
 };

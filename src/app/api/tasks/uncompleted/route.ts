@@ -7,8 +7,8 @@ async function GET(req: NextApiRequest, res: NextApiResponse) {
   try {
     let tasks: any = [];
     const q = query(
-      collection(db, "tasks"), // Replace 'tasks' with your collection name
-      where("completed", "==", false), // Filter documents where 'completed' is true
+      collection(db, "tasks"),
+      where("completed", "==", false),
       orderBy("createdAt")
     );
     const querySnapshot = await getDocs(q);

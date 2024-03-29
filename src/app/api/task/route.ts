@@ -1,10 +1,6 @@
 import {
   collection,
   addDoc,
-  getDocs,
-  query,
-  where,
-  orderBy,
   deleteDoc,
   doc,
   updateDoc,
@@ -17,14 +13,13 @@ import { NextResponse } from "next/server";
 async function POST(req: any, res: NextApiResponse) {
   const { title, description } = await req.json();
   try {
-    const date = new Date();
     const newTask = {
       title: title,
       description: description || "",
       completed: false,
       createdAt: serverTimestamp(),
     };
-    const docRef = await addDoc(collection(db, "tasks"), newTask);
+    await addDoc(collection(db, "tasks"), newTask);
 
     return NextResponse.json(
       {
@@ -54,7 +49,7 @@ async function PUT(req: any, res: NextApiResponse) {
     };
 
     const taskRef = doc(db, "tasks", id);
-    const docRef = await updateDoc(taskRef, newTask);
+    await updateDoc(taskRef, newTask);
 
     return NextResponse.json(
       {
