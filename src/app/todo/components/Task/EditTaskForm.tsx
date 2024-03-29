@@ -35,12 +35,13 @@ export default function EditTaskForm({
           name="title"
           className="w-100 text-white border-bottom"
           defaultValue={editingMode.title}
+          placeholder="Title"
           required
         />
         <textarea
           name="description"
           className="w-100 px-2 default-input text-white"
-          placeholder={editingMode?.description ? "" : "Add a description"}
+          placeholder={"Add a description"}
           defaultValue={editingMode.description}
           style={{ resize: "none" }}
         />

@@ -9,7 +9,7 @@ async function GET(req: NextApiRequest, res: NextApiResponse) {
     const q = query(
       collection(db, "tasks"),
       where("completed", "==", false),
-      orderBy("createdAt")
+      orderBy("createdAt", "desc")
     );
     const querySnapshot = await getDocs(q);
     querySnapshot?.forEach((doc) => {
@@ -17,6 +17,7 @@ async function GET(req: NextApiRequest, res: NextApiResponse) {
     });
     return NextResponse.json(tasks, { status: 200 });
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
       { error: "Something went wrong!" },
       { status: 404 }

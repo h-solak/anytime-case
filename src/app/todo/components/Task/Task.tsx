@@ -48,7 +48,7 @@ export default function Task({
               className="form-check-input"
               type="checkbox"
               checked={completed}
-              onChange={(e) =>
+              onChange={() =>
                 handleCheckTask(id, title, description || "", completed)
               }
               style={{

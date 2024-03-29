@@ -4,18 +4,19 @@ import { useState } from "react";
 
 type SearchInputProps = {
   placeholder: string;
-  completed: boolean;
+  searchQuery: string;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export default function SearchInput({
   placeholder,
-  completed,
+  searchQuery,
+  setSearchQuery,
 }: SearchInputProps) {
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <ColContainer>
       <input
-        className={`w-100 px-4 py-2 rounded-5 border-1`}
+        className={`w-100 px-4 py-2 rounded-5 border-0`}
         placeholder={placeholder}
         value={searchQuery}
         onChange={(e) => {

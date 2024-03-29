@@ -6,6 +6,13 @@ body {
   overflow-x: hidden;
 }
 
+.absolute-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .fs-7 {
   font-size: 14px;
 }
@@ -46,7 +53,8 @@ body {
   }
 }
 
-.rotate-loader {
+.rotate-loader,
+.rotate-loader-xl {
   border: 3px solid #ffffff;
   width: 20px;
   height: 20px;
@@ -55,6 +63,11 @@ body {
   display: inline-block;
   box-sizing: border-box;
   animation: rotate 1s linear infinite;
+}
+
+.rotate-loader-xl {
+  width: 32px;
+  height: 32px;
 }
 
 @keyframes rotate {

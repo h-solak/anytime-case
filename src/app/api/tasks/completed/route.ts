@@ -9,7 +9,7 @@ async function GET(req: any, res: NextApiResponse) {
     const q = query(
       collection(db, "tasks"),
       where("completed", "==", true),
-      orderBy("createdAt")
+      orderBy("createdAt", "desc")
     );
 
     const querySnapshot = await getDocs(q);
