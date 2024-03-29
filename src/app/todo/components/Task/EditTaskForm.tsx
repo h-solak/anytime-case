@@ -1,4 +1,3 @@
-"use client";
 import ColContainer from "@/components/base/ColContainer";
 import { handleUpdateTaskDetails } from "../../actions/actions";
 import { EditingModeType } from "./Task";
@@ -6,8 +5,6 @@ import Input from "@/components/base/Input";
 
 type EditTaskFormType = {
   id: string;
-  title: string;
-  description: string;
   completed: boolean;
   editingMode: EditingModeType;
   setEditingMode: React.Dispatch<React.SetStateAction<EditingModeType>>;
@@ -15,8 +12,6 @@ type EditTaskFormType = {
 
 export default function EditTaskForm({
   id,
-  title,
-  description,
   completed,
   editingMode,
   setEditingMode,
@@ -40,6 +35,7 @@ export default function EditTaskForm({
           name="title"
           className="w-100 text-white border-bottom"
           defaultValue={editingMode.title}
+          required
         />
         <textarea
           name="description"
