@@ -6,6 +6,7 @@ type Props = {
 };
 
 export default function ColContainer({ className, children }: Props) {
-  const defaultClassName = "col-12 col-md-6";
+  const defaultClassName =
+    "col-12 col-md-6 col-xl-4 d-flex justify-content-start";
   return <div className={`${defaultClassName} ${className}`}>{children}</div>;
 }

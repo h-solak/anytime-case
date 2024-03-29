@@ -7,7 +7,7 @@ export default function Navbar() {
   //if the current path is completed, uncompleted, or none
   const currentPath = pathname.match(/(uncompleted|completed)/)?.[0] || "";
   return (
-    <nav className="p-4 d-flex align-items-center justify-content-center gap-4 light-border-bottom">
+    <nav className="p-4 d-flex align-items-center justify-content-center gap-4">
       <Link href={"/todo/uncompleted"}>
         <button
           className={`btn ${

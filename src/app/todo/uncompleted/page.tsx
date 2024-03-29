@@ -1,39 +1,20 @@
 import RowContainer from "@/components/base/RowContainer";
 import SearchInput from "@/components/base/SearchInput";
-import Task from "../components/Task";
-import CreateTask from "../components/CreateTask";
+import CreateTask from "../components/CreateTask/CreateTask";
 import TaskList from "../components/TaskList";
-import ColContainer from "@/components/base/ColContainer";
-const fakeTasks = [
-  {
-    id: "1",
-    title: "Complete assignment",
-    description:
-      "You should remember that you have no chance but to graduate this summer...",
-    completed: false,
-    createdAt: new Date("2024-03-28"),
-  },
-  {
-    id: "2",
-    title: "Prepare presentation",
-    completed: true,
-    createdAt: new Date("2024-03-27"),
-  },
-  {
-    id: "3",
-    title: "Attend meeting",
-    description: "Don't forget to take notes!",
-    completed: false,
-    createdAt: new Date("2024-03-26"),
-  },
-];
+import { getTasks } from "@/services/Tasks";
+import { useSearchParams } from "next/navigation";
 
-export default function UnCompleted() {
+export default async function UnCompleted() {
+  const tasks = await getTasks(false, "");
   return (
-    <RowContainer className={"justify-content-center"}>
-      <SearchInput placeholder="Search uncompleted tasks..." />
-      <CreateTask />
-      <TaskList tasks={fakeTasks} />
+    <RowContainer>
+      <SearchInput
+        completed={false}
+        placeholder="Search uncompleted tasks..."
+      />
+      <CreateTask completed={false} />
+      <TaskList tasks={tasks} completed={false} />
     </RowContainer>
   );
 }

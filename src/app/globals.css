@@ -1,13 +1,16 @@
 body {
-  background-color: #000 !important;
+  background-color: #000000 !important;
   color: #fff !important;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
-.light-border-bottom {
-  border-bottom: 2px solid #ffffff20;
+.fs-7 {
+  font-size: 14px;
+}
+.fs-8 {
+  font-size: 12px;
 }
 
 .default-input {
@@ -17,4 +20,46 @@ body {
 
 .default-input:focus {
   outline: none;
+}
+
+.bg-card {
+  background-color: #222229;
+  /* box-shadow: #a0153e90 6px 4px 10px -1px, #a0153e90 -6px -4px 10px -1px,
+    #a0153e90 -6px 4px 10px -1px, #a0153e90 6px -4px 10px -1px; */
+}
+
+.intro-animation {
+  animation: openingAnimation 0.5s ease-in-out;
+  transform-origin: top center;
+}
+
+@keyframes openingAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-36px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.rotate-loader {
+  border: 3px solid #ffffff;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border-bottom-color: transparent;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

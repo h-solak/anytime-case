@@ -1,16 +1,27 @@
+"use client";
 import ColContainer from "./ColContainer";
-
-type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+import { useState } from "react";
 
 type SearchInputProps = {
-  className?: string;
-} & InputProps;
+  placeholder: string;
+  completed: boolean;
+};
 
-export default function SearchInput({ className, ...props }: SearchInputProps) {
-  const defaultClasses = "w-100 px-4 py-2 rounded-5";
+export default function SearchInput({
+  placeholder,
+  completed,
+}: SearchInputProps) {
+  const [searchQuery, setSearchQuery] = useState("");
   return (
     <ColContainer>
-      <input className={`${defaultClasses} ${className}`} {...props} />
+      <input
+        className={`w-100 px-4 py-2 rounded-5 border-1`}
+        placeholder={placeholder}
+        value={searchQuery}
+        onChange={(e) => {
+          setSearchQuery(e.target.value);
+        }}
+      />
     </ColContainer>
   );
 }
