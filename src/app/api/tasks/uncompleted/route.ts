@@ -1,25 +1,22 @@
 import { db } from "@/app/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 
 async function GET(req: NextApiRequest, res: NextApiResponse) {
   try {
-    // const tasks: any = await getDocs(collection(db, "tasks"));
-    // const tasks2 = query(
-    //   collection(db, "tasks"),
-    //   where("completed", "==", true),
-    //   orderBy("createdAt")
-    // );
-
     let tasks: any = [];
-    const querySnapshot = await getDocs(collection(db, "tasks"));
-    querySnapshot.forEach((doc) => {
+    const q = query(
+      collection(db, "tasks"), // Replace 'tasks' with your collection name
+      where("completed", "==", false), // Filter documents where 'completed' is true
+      orderBy("createdAt")
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot?.forEach((doc) => {
       tasks.push({ ...doc.data(), id: doc.id });
     });
     return NextResponse.json(tasks, { status: 200 });
   } catch (error) {
-    console.log("NOOOOOOOOO", error);
     return NextResponse.json(
       { error: "Something went wrong!" },
       { status: 404 }
