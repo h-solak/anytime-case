@@ -5,11 +5,23 @@ import TasklistSvg from "@/assets/svg/tasklist.svg";
 import Image from "next/image";
 
 type TaskListType = {
-  completed: boolean;
   tasks: TaskType[];
+  searchQuery: string;
+  tasksLoading: boolean;
 };
 
-export default async function TaskList({ tasks, completed }: TaskListType) {
+export default function TaskList({
+  tasks,
+  searchQuery,
+  tasksLoading,
+}: TaskListType) {
+  if (tasksLoading) {
+    return (
+      <div className="absolute-center d-flex justify-content-center">
+        <span className="rotate-loader-xl" />
+      </div>
+    );
+  }
   return (
     <RowContainer className={"intro-animation pb-5"}>
       {tasks?.length > 0 ? (
@@ -26,6 +38,12 @@ export default async function TaskList({ tasks, completed }: TaskListType) {
             />
           );
         })
+      ) : searchQuery?.length > 0 ? ( // If there are no tasks
+        <div className="intro-animation mt-5 d-flex flex-column justify-content-center align-items-center">
+          <span className="text-secondary mt-2 text-center">
+            No results found
+          </span>
+        </div> // If there are no tasks
       ) : (
         <div className="intro-animation mt-5 d-flex flex-column justify-content-center align-items-center">
           <Image
