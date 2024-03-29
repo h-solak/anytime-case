@@ -1,4 +1,3 @@
-"use-client";
 import React, { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import Input from "@/components/base/Input";
@@ -21,18 +20,25 @@ export default function TaskForm({
   return (
     <form
       action={async (formData) => {
-        setCreatingInProgress(true);
-        await handleAddTask(formData);
-        setCreatingInProgress(false);
-        formData.set("title", "");
-        formData.set("description", "");
-        setIsCreatingMode(false);
+        if (formData.get("title")) {
+          setCreatingInProgress(true);
+          await handleAddTask(formData);
+          setCreatingInProgress(false);
+          formData.set("title", "");
+          formData.set("description", "");
+          setIsCreatingMode(false);
+        }
       }}
       className="w-100"
     >
       <div className="w-100 bg-white rounded-3 d-flex flex-column gap-0">
         <div className="d-flex align-items-center">
-          <Input className="p-2 rounded-1" placeholder="Title*" name="title" />
+          <Input
+            className="p-2 rounded-1"
+            placeholder="Title*"
+            name="title"
+            required
+          />
           <IoCloseSharp
             className="mx-2 fs-3"
             onClick={() => setIsCreatingMode(false)}

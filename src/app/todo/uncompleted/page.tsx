@@ -3,7 +3,6 @@ import SearchInput from "@/components/base/SearchInput";
 import CreateTask from "../components/CreateTask/CreateTask";
 import TaskList from "../components/TaskList";
 import { getTasks } from "@/services/Tasks";
-import { useSearchParams } from "next/navigation";
 
 export default async function UnCompleted() {
   const tasks = await getTasks(false, "");

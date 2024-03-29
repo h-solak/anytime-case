@@ -1,5 +1,5 @@
 import { Key } from "react";
-import Task, { TaskType } from "./Task";
+import Task, { TaskType } from "./Task/Task";
 import RowContainer from "@/components/base/RowContainer";
 import TasklistSvg from "@/assets/svg/tasklist.svg";
 import Image from "next/image";

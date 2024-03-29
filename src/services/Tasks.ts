@@ -1,4 +1,4 @@
-import { TaskType } from "@/app/todo/components/Task";
+import { TaskType } from "@/app/todo/components/Task/Task";
 
 const apiTasks = `http://localhost:3000/api/tasks`;
 type getTasksType = (

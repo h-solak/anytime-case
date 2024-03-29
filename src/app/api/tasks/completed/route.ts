@@ -1,13 +1,5 @@
 import { db } from "@/app/firebase";
-import {
-  collection,
-  endAt,
-  getDocs,
-  orderBy,
-  query,
-  startAt,
-  where,
-} from "firebase/firestore";
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import { NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 
@@ -15,8 +7,8 @@ async function GET(req: any, res: NextApiResponse) {
   try {
     let tasks: any = [];
     const q = query(
-      collection(db, "tasks"), // Replace 'tasks' with your collection name
-      where("completed", "==", true), // Filter documents where 'completed' is true
+      collection(db, "tasks"),
+      where("completed", "==", true),
       orderBy("createdAt")
     );
 
